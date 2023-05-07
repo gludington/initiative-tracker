@@ -1,4 +1,6 @@
-# Owlbear Rodeo Initiative Tracker
+# Owlbear Rodeo Initiative Tracker Beyond20 example
+
+A fork of the stock Owlbear initiative tracker showing how to wire it up with Beyond20.
 
 A basic initiative tracker with a shared view for you and your players
 

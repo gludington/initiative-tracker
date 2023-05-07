@@ -30,9 +30,30 @@ function isMetadata(
   );
 }
 
-export function InitiativeTracker() {
+export function InitiativeTracker({ message}: {message: any}) {
   const [initiativeItems, setInitiativeItems] = useState<InitiativeItem[]>([]);
 
+  useEffect(() => {
+    if (message?.action === 'rendered-roll') {
+      //find the character name and roll
+      const characterName = message.character;
+      const roll = message['attack_rolls']?.find(r => r.type === 'initiative');
+      //only do something if we have an initiative roll
+      if (roll) {
+        const total = roll.total;
+        //update matching items
+        OBR.scene.items.updateItems(it => it.name === characterName, matches => {
+          for (let match of matches) {
+            match.metadata[getPluginId("metadata")] = {
+              count: `${total}`,
+              active: false,
+            };
+          }
+        })
+      }
+    }
+  }, [message]);
+  
   useEffect(() => {
     const handleItemsChange = (items: Item[]) => {
       const initiativeItems: InitiativeItem[] = [];
