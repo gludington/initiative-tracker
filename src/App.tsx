@@ -4,7 +4,7 @@ import OBR from "@owlbear-rodeo/sdk";
 import { InitiativeHeader } from "./InitiativeHeader";
 import { InitiativeTracker } from "./InitiativeTracker";
 
-const ID = `rodeo.owlbear.initiative-tracker`;
+const ID = `rodeo.owlbear.initiative-tracker-beyond20`;
 /**
  * 
  * @param onMessageReceived a function to execute on a mesage from Owlbear-Beyond20
